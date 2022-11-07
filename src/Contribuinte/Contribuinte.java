@@ -6,21 +6,16 @@ import Bens.Bem;
 
 public class Contribuinte{
 
-    private Bem bem;
+    private Tributos tributo;
+
     private String nome;
     private int numId;
 
     private ArrayList<Bem> bens;
 
-    Contribuinte(String nome, int numId, String tipoBem, float preco) {
+    Contribuinte(String nome, int numId) {
         this.nome = nome;
         this.numId = numId;
-        if (tipoBem.equals("N/D") == true)
-            this.bem = null;
-        else{
-            this.bem = new Bem(tipoBem, preco);
-            bens.add(bem);        
-        }
     }
 
     public String getNome() {
@@ -45,6 +40,30 @@ public class Contribuinte{
 
     public void setBens(ArrayList<Bem> bens) {
         this.bens = bens;
+    }
+
+    public float getImposto() {
+        return tributo.getImposto();
+    }
+
+    public void setImposto(float imposto) {
+        this.tributo.setImposto(imposto);
+    }
+
+    public float getDesconto() {
+        return tributo.getDesconto();
+    }
+
+    public void setDesconto(float desconto) {
+        this.tributo.setDesconto(desconto);
+    }
+
+    public float getImpostoFinal() {
+        return tributo.getImpostoFinal();
+    }
+
+    public void setImpostoFinal(float ImpostoFinal) {
+        this.tributo.setImpostoFinal(ImpostoFinal);
     }
 
     public Bem addBem(String tipo, float preco){

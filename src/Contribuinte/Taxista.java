@@ -5,8 +5,8 @@ public class Taxista extends Contribuinte{
     private int numPassageirosAnuais;
     private Rodoviario rodoviario;
 
-    public Taxista(String nome, int numId, String tipoBem, float preco, int numPassageirosAnuais, float kmPercorridos) {
-        super(nome, numId, tipoBem, preco);
+    public Taxista(String nome, int numId, int numPassageirosAnuais, float kmPercorridos) {
+        super(nome, numId);
         this.rodoviario = new Rodoviario(kmPercorridos);
         this.numPassageirosAnuais = numPassageirosAnuais;
     }
@@ -20,7 +20,11 @@ public class Taxista extends Contribuinte{
     }
     public float Tributos(){
         float imposto = 0;
+        
         imposto = (float) (numPassageirosAnuais*0.5);
+
+        setImposto(imposto);
+        setDesconto(rodoviario.getDesconto());
 
         if(rodoviario.getDesconto() >= imposto)
             return 0;
@@ -29,4 +33,12 @@ public class Taxista extends Contribuinte{
             return imposto;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Contribuinte: "+ getNome() + "\nTipo: Taxista\nId: " + getNumId() +
+            "\nImpostos: " + getImposto() + "\nDesconto: " + getDesconto() + "\nTotal: "+
+            getImpostoFinal(); 
+    }
+    
 }

@@ -5,21 +5,62 @@ import java.util.ArrayList;
 import Contribuinte.*;
 
 public class ReceitaFederal {
-    private ArrayList<Contribuinte> contribuintes;
-    private int numContribuinte = 0;
 
-    public Taxista criarTaxista(String nome, String tipoBem, float preco, int numPassageirosAnuais, float kmPercorridos){
-        Taxista taxi = new Taxista(nome, numContribuinte,tipoBem , preco, numPassageirosAnuais, kmPercorridos);
+    public ArrayList<Contribuinte> getContribuintes() {
+        return contribuintes;
+    }
+    public void setMama(ArrayList<Contribuinte> contribuintes) {
+        this.contribuintes = contribuintes;
+    }
+
+    private ArrayList<Contribuinte> contribuintes = new ArrayList<Contribuinte>();
+
+    private int numContribuinte = 1;
+
+    public ReceitaFederal(){};
+
+// i. Cadastrar contribuintes.
+
+    public Taxista criarTaxista(String nome, int numPassageirosAnuais, float kmPercorridos){
+        Taxista taxi = new Taxista(nome, numContribuinte, numPassageirosAnuais, kmPercorridos);
         contribuintes.add(taxi);
         numContribuinte++;
         return taxi;
     }
 
-    public Caminhoneiro criarCaminhoneiro(String nome, String tipoBem, float preco, int numPassageirosAnuais, float kmPercorridos){
-        Caminhoneiro caminhao = new Caminhoneiro(nome, numContribuinte,tipoBem , preco, numPassageirosAnuais, kmPercorridos);
+    public Caminhoneiro criarCaminhoneiro(String nome, float toneladasTransportadas, float kmPercorridos){
+        Caminhoneiro caminhao = new Caminhoneiro(nome, numContribuinte, toneladasTransportadas, kmPercorridos);
         contribuintes.add(caminhao);
         numContribuinte++;
         return caminhao;
     }
+
+    public Medico criarMedico(String nome, int numPacientes, float despesasCongresso){
+        Medico medico = new Medico(nome, numContribuinte, numPacientes, despesasCongresso);
+        contribuintes.add(medico);
+        numContribuinte++;
+        return medico;
+    }
+
+    public Professor criarProfessor(String nome, float numSalarios, float gastosMaterialDidatico){
+        Professor professor = new Professor(nome, numContribuinte, numSalarios, gastosMaterialDidatico);
+        contribuintes.add(professor);
+        numContribuinte++;
+        return professor;
+    }
+
+// ii. Calcular e mostrar impostos e descontos associados a um contribuinte
+/*
+    public Contribuinte verTributos(int idContribuinte){
+        /*
+        float impostoSemDesconto = contribuintes.get(idContribuinte-1).getImposto();
+        float desconto = contribuintes.get(idContribuinte-1).getDesconto();
+        float impostoComDesconto = contribuintes.get(idContribuinte-1).getImpostoFinal();
+       
+       / contribuintes.get(idContribuinte-1).toString();
+
+        return contribuintes.get(idContribuinte-1);
+    } */
     
+// iii. Listar os contribuintes em função dos sinais exteriores de riqueza indicando se são excessivos ou não.
 }

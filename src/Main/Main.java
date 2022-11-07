@@ -8,7 +8,7 @@ public class Main {
         int value = Menu();
         switch(value){
             case 1:
-                
+                Opcao1.escolha1();
                 break;
             case 2:
                 break;
@@ -25,8 +25,13 @@ public class Main {
         System.out.println("2 - Calcular e mostrar impostos e descontos associados a um contribuinte.");
         System.out.println("3 - Listar os contribuintes em função dos sinais exteriores de riqueza indicando se são excessivos ou não.");
         int escolha = sc.nextInt();
-
-        sc.close();
+        clearBuffer(sc);
         return escolha;
+    }
+
+    public static void clearBuffer(Scanner scanner) {
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
     }
 }
