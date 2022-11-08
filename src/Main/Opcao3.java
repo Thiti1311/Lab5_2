@@ -98,20 +98,23 @@ public class Opcao3 {
         System.out.println("Contribuintes acima do limiar exteriores de riqueza:");
 
         int j = 0;
-        System.out.println("Numero do Id  |  Nome  |  Valor dos Bens");
+        System.out.println("\nNumero do Id  |  Nome  |  Valor dos Bens");
         while(j < acimaDoLimiar.size()){
-            System.out.printf("%s |", acimaDoLimiar.get(i).getNumId());
-            System.out.printf("%s |", acimaDoLimiar.get(i).getNome());
-            System.out.printf("%f\n", acimaDoLimiar.get(i).valorBens());
+            System.out.printf("%s | ", acimaDoLimiar.get(j).getNumId());
+            System.out.printf("%s | ", acimaDoLimiar.get(j).getNome());
+            System.out.printf("%.2f\n", acimaDoLimiar.get(j).valorBens());
             j++;
         }
 
         j = 0;
 
+        System.out.println("Contribuintes abaixo do limiar exteriores de riqueza:");
+        System.out.println("\nNumero do Id  |  Nome  |  Valor dos Bens");
+
         while(j < abaixoDolimiar.size()){
-            System.out.printf("%s |", abaixoDolimiar.get(i).getNumId());
-            System.out.printf("%s |", abaixoDolimiar.get(i).getNome());
-            System.out.printf("%f\n", abaixoDolimiar.get(i).valorBens());
+            System.out.printf("%s | ", abaixoDolimiar.get(j).getNumId());
+            System.out.printf("%s | ", abaixoDolimiar.get(j).getNome());
+            System.out.printf("%.2f\n", abaixoDolimiar.get(j).valorBens());
             j++;
         }
 

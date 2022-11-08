@@ -43,7 +43,11 @@ public class MeuSistemaDeTributacao {
                 case 3:
                     receita = Opcao3.sinaisExterioresDeRiqueza(receita);
                     break;
+                case 4:
+                    ReceitaFederal.mostrarContribuintes(receita);
+                    break;
             }
+            System.out.println("");
         }while(continuar == true);
     }
     
@@ -56,6 +60,7 @@ public class MeuSistemaDeTributacao {
         System.out.println("1 - Cadastrar contribuintes.");
         System.out.println("2 - Calcular e mostrar impostos e descontos associados a um contribuinte.");
         System.out.println("3 - Listar os contribuintes em função dos sinais exteriores de riqueza indicando se são excessivos ou não.");
+        System.out.println("4 - Listar todos os contribuintes.");
         System.out.println("0 - Sair.");
         escolha = sc.nextInt();
         clearBuffer(sc);

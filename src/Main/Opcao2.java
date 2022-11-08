@@ -13,9 +13,8 @@ public class Opcao2 {
         int idNumber = sc2.nextInt();
         MeuSistemaDeTributacao.clearBuffer(sc2);
 
-        receita.verTributos(idNumber);
-        System.out.println("");
-       // MeuSistemaDeTributacao.clearBuffer(sc2);
+        System.out.println(receita.getContribuintes().get(idNumber-1));
+
         return receita;
     }
 

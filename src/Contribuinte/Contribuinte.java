@@ -10,7 +10,15 @@ public class Contribuinte{
 
     private String nome;
     private int numId;
+    private String tipoContribuinte;
 
+    public String getTipoContribuinte() {
+        return tipoContribuinte;
+    }
+
+    public void setTipoContribuinte(String tipoContribuinte) {
+        this.tipoContribuinte = tipoContribuinte;
+    }
     private ArrayList<Bem> bens = new ArrayList<Bem>();
 
     Contribuinte(String nome, int numId) {

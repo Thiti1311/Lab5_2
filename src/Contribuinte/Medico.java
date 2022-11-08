@@ -9,6 +9,7 @@ public class Medico extends Contribuinte{
         super(nome, numId);
         this.numPacientes = numPacientes;
         this.despesasCongresso = despesasCongresso;
+        setTipoContribuinte("Medico");
         Tributos();
     }
 
@@ -45,5 +46,11 @@ public class Medico extends Contribuinte{
             setImpostoFinal(imposto);
             return imposto;
         }
+    }
+    @Override
+    public String toString() {
+        return "Contribuinte: "+ getNome() + "\nTipo: Medico\nId: " + getNumId() +
+            "\nImpostos: " + getImposto() + "\nDesconto: " + getDesconto() + "\nTotal: "+
+            getImpostoFinal()+"\n"; 
     }
 }

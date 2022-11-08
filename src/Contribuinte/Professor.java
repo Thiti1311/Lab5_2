@@ -11,6 +11,7 @@ public class Professor extends Contribuinte{
         super(nome, numId);
         this.numSalarios = numSalarios;
         this.gastosMaterialDidatico = gastosMaterialDidatico;
+        setTipoContribuinte("Professor");
         Tributos();
     }
 
@@ -43,6 +44,12 @@ public class Professor extends Contribuinte{
             imposto = imposto - (gastosMaterialDidatico/2);
             setImpostoFinal(imposto);
             return imposto;
-        } 
+        }
+    }
+    @Override
+    public String toString() {
+        return "Contribuinte: "+ getNome() + "\nTipo: Professor\nId: " + getNumId() +
+            "\nImpostos: " + getImposto() + "\nDesconto: " + getDesconto() + "\nTotal: "+
+            getImpostoFinal()+"\n"; 
     }
 }

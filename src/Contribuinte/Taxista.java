@@ -9,6 +9,7 @@ public class Taxista extends Contribuinte{
         super(nome, numId);
         this.rodoviario = new Rodoviario(kmPercorridos);
         this.numPassageirosAnuais = numPassageirosAnuais;
+        setTipoContribuinte("Taxista");
         Tributos();
     }
 
@@ -42,7 +43,7 @@ public class Taxista extends Contribuinte{
     public String toString() {
         return "Contribuinte: "+ getNome() + "\nTipo: Taxista\nId: " + getNumId() +
             "\nImpostos: " + getImposto() + "\nDesconto: " + getDesconto() + "\nTotal: "+
-            getImpostoFinal(); 
+            getImpostoFinal()+"\n"; 
     }
     
 }

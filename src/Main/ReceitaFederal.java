@@ -49,18 +49,11 @@ public class ReceitaFederal {
         return professor;
     }
 
-// ii. Calcular e mostrar impostos e descontos associados a um contribuinte
-
-    public Contribuinte verTributos(int idContribuinte){
-        
-        float impostoSemDesconto = contribuintes.get(idContribuinte-1).getImposto();
-        float desconto = contribuintes.get(idContribuinte-1).getDesconto();
-        float impostoComDesconto = contribuintes.get(idContribuinte-1).getImpostoFinal();
-        System.out.printf("O imposto total: R$%.2f\nO desconto dado: R$%.2f\nValor total a ser pago: R$%.2f\n", impostoSemDesconto, desconto, impostoComDesconto);
-        return contribuintes.get(idContribuinte-1);
-    } 
-    
-// iii. Listar os contribuintes em função dos sinais exteriores de riqueza indicando se são excessivos ou não.
-
-    
+    public static void mostrarContribuintes(ReceitaFederal receita){
+        int i = 0;
+        while( i < receita.getContribuintes().size()){
+            System.out.println(receita.getContribuintes().get(i).getNome() + " | " + receita.getContribuintes().get(i).getTipoContribuinte());
+            i++;
+        }
+    }
 }

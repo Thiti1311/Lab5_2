@@ -10,6 +10,7 @@ public class Caminhoneiro extends Contribuinte{
         super(nome, numId);
         this.rodoviario = new Rodoviario(kmPercorridos);
         this.toneladasTransportadas = toneladasTransportadas;
+        setTipoContribuinte("Caminhoneiro");
         Tributos();
     }
 
@@ -42,6 +43,12 @@ public class Caminhoneiro extends Contribuinte{
             setImpostoFinal(imposto);
             return imposto;
         }
-        
+    }
+
+    @Override
+    public String toString() {
+        return "Contribuinte: "+ getNome() + "\nTipo: Caminhoneiro\nId: " + getNumId() +
+            "\nImpostos: " + getImposto() + "\nDesconto: " + getDesconto() + "\nTotal: "+
+            getImpostoFinal()+"\n"; 
     }
 }
