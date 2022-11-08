@@ -14,7 +14,8 @@ public class Opcao2 {
         MeuSistemaDeTributacao.clearBuffer(sc2);
 
         receita.verTributos(idNumber);
-        MeuSistemaDeTributacao.clearBuffer(sc2);
+        System.out.println("");
+       // MeuSistemaDeTributacao.clearBuffer(sc2);
         return receita;
     }
 

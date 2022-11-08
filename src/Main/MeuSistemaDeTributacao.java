@@ -41,7 +41,7 @@ public class MeuSistemaDeTributacao {
                     receita = Opcao2.escolha2(receita);
                     break;
                 case 3:
-                    receita = Opcao3.escolha3(receita);
+                    receita = Opcao3.sinaisExterioresDeRiqueza(receita);
                     break;
             }
         }while(continuar == true);

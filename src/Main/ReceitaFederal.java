@@ -1,6 +1,5 @@
 package Main;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import Contribuinte.*;
@@ -63,60 +62,5 @@ public class ReceitaFederal {
     
 // iii. Listar os contribuintes em função dos sinais exteriores de riqueza indicando se são excessivos ou não.
 
-    public Contribuinte sinaisExterioresDeRiqueza(){
-
-        ArrayList<Taxista> taxistas = new ArrayList<Taxista>();
-        ArrayList<Caminhoneiro> caminhoneiros = new ArrayList<Caminhoneiro>();
-        ArrayList<Professor> professores = new ArrayList<Professor>();
-        ArrayList<Medico> medicos = new ArrayList<Medico>();
-
-        Float limiarTaxistas = (float) 0;
-        Float limiarCaminhoneiros = (float) 0;
-        Float limiarProfessores = (float) 0;
-        Float limiarMedicos = (float) 0;
-
-
-        for (int i = 0; i < contribuintes.size(); i++){
-            if (contribuintes.get(i).getClass() == Taxista.class){
-                taxistas.add((Taxista) contribuintes.get(i));
-                limiarTaxistas += contribuintes.get(i).valorBens();
-            }
-            else if (contribuintes.get(i).getClass() == Caminhoneiro.class){
-                caminhoneiros.add((Caminhoneiro) contribuintes.get(i));
-                limiarCaminhoneiros += contribuintes.get(i).valorBens();
-            }
-            else if (contribuintes.get(i).getClass() == Professor.class){
-                professores.add((Professor) contribuintes.get(i));
-                limiarProfessores += contribuintes.get(i).valorBens();
-            }
-            else if (contribuintes.get(i).getClass() == Medico.class){
-                medicos.add((Medico) contribuintes.get(i));
-                limiarMedicos += contribuintes.get(i).valorBens();
-            }
-        }
-
-        limiarTaxistas = limiarTaxistas/taxistas.size();
-        limiarCaminhoneiros = limiarCaminhoneiros/caminhoneiros.size();
-        limiarProfessores = limiarProfessores/professores.size();
-        limiarMedicos = limiarMedicos/medicos.size();
-        
-        int maior = taxistas.size();
-
-        if (maior < caminhoneiros.size())
-            maior = caminhoneiros.size();
-        if (maior < professores.size())
-            maior = professores.size();
-        if (maior < medicos.size())
-            maior = medicos.size();
-
-        int i = 0;
-
-        while(i < maior){
-            if (taxistas.get(i) == )
-            i++;
-        }
-
-        return contribuintes.get(idContribuinte-1);
-    }
-
+    
 }
