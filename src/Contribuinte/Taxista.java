@@ -9,6 +9,7 @@ public class Taxista extends Contribuinte{
         super(nome, numId);
         this.rodoviario = new Rodoviario(kmPercorridos);
         this.numPassageirosAnuais = numPassageirosAnuais;
+        Tributos();
     }
 
     public int getNumPassageirosAnuais() {
@@ -26,10 +27,13 @@ public class Taxista extends Contribuinte{
         setImposto(imposto);
         setDesconto(rodoviario.getDesconto());
 
-        if(rodoviario.getDesconto() >= imposto)
+        if(rodoviario.getDesconto() >= imposto){
+            setImpostoFinal(0);
             return 0;
+        }
         else{
             imposto = imposto - rodoviario.getDesconto();
+            setImpostoFinal(imposto);
             return imposto;
         }
     }

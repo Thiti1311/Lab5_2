@@ -2,6 +2,7 @@ package Contribuinte;
 
 public class Caminhoneiro extends Contribuinte{
 
+
     private float toneladasTransportadas;
     private Rodoviario rodoviario;
 
@@ -9,6 +10,7 @@ public class Caminhoneiro extends Contribuinte{
         super(nome, numId);
         this.rodoviario = new Rodoviario(kmPercorridos);
         this.toneladasTransportadas = toneladasTransportadas;
+        Tributos();
     }
 
     public float getToneladasTransportadas() {
@@ -21,7 +23,7 @@ public class Caminhoneiro extends Contribuinte{
     public float Tributos(){
         float imposto = 0;
 
-        if(toneladasTransportadas >= 10){
+        if(toneladasTransportadas <= 10){
             imposto = 500;
         }
         else{
@@ -31,11 +33,15 @@ public class Caminhoneiro extends Contribuinte{
         setImposto(imposto);
         setDesconto(rodoviario.getDesconto());
     
-        if(rodoviario.getDesconto() >= imposto)
+        if(rodoviario.getDesconto() >= imposto){
+            setImpostoFinal(0);
             return 0;
-        else
+        }
+        else{
             imposto = imposto - rodoviario.getDesconto();
+            setImpostoFinal(imposto);
+            return imposto;
+        }
         
-        return imposto;
     }
 }

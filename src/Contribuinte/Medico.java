@@ -9,6 +9,7 @@ public class Medico extends Contribuinte{
         super(nome, numId);
         this.numPacientes = numPacientes;
         this.despesasCongresso = despesasCongresso;
+        Tributos();
     }
 
     public int getNumPacientes() {
@@ -35,10 +36,13 @@ public class Medico extends Contribuinte{
         setImposto(imposto);
         setDesconto(despesasCongresso);
 
-        if(despesasCongresso >= imposto)
+        if(despesasCongresso >= imposto){
+            setImpostoFinal(0);
             return 0;
+        }
         else{
             imposto = imposto - despesasCongresso;
+            setImpostoFinal(imposto);
             return imposto;
         }
     }

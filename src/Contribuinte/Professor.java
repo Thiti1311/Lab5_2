@@ -11,6 +11,7 @@ public class Professor extends Contribuinte{
         super(nome, numId);
         this.numSalarios = numSalarios;
         this.gastosMaterialDidatico = gastosMaterialDidatico;
+        Tributos();
     }
 
     public float getNumSalarios() {
@@ -34,11 +35,14 @@ public class Professor extends Contribuinte{
         setImposto(imposto);
         setDesconto(gastosMaterialDidatico/2);
 
-        if(gastosMaterialDidatico/2 >= imposto)
+        if(gastosMaterialDidatico/2 >= imposto){
+            setImpostoFinal(0);
             return 0;
-        else   
+        }
+        else{
             imposto = imposto - (gastosMaterialDidatico/2);
-
-        return imposto;
+            setImpostoFinal(imposto);
+            return imposto;
+        } 
     }
 }

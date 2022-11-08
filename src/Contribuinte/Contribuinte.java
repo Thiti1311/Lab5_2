@@ -6,12 +6,12 @@ import Bens.Bem;
 
 public class Contribuinte{
 
-    private Tributos tributo;
+    private Tributos tributo = new Tributos();
 
     private String nome;
     private int numId;
 
-    private ArrayList<Bem> bens;
+    private ArrayList<Bem> bens = new ArrayList<Bem>();
 
     Contribuinte(String nome, int numId) {
         this.nome = nome;

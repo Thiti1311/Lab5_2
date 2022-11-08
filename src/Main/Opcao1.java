@@ -13,14 +13,12 @@ public class Opcao1 {
         System.out.println("3 - Professor.");
         System.out.println("4 - Médico.");
         int escolha = sc.nextInt();
-        Main.clearBuffer(sc);
+        MeuSistemaDeTributacao.clearBuffer(sc);
 
         return escolha;
     }
 
-    public static void escolha1(){
-
-        ReceitaFederal receita = new ReceitaFederal();
+    public static ReceitaFederal escolha1(ReceitaFederal receita){
 
         System.out.println("Escolha o tipo de contribuinte que você deseja adicionar:");
         
@@ -41,14 +39,14 @@ public class Opcao1 {
         if (contemBem.equals("Sim") || contemBem.equals("sim")){
             System.out.println("Quantos bens ele possui?");
             numBens = sc.nextInt();
-            Main.clearBuffer(sc);
+            MeuSistemaDeTributacao.clearBuffer(sc);
 
             for (int i = 0; i < numBens; i++){
                 System.out.println("Informe o tipo de bem: (Casa ou Carro)");
                 tipoBem[i] = sc.nextLine();
                 System.out.println("Informe o preco do "+ tipoBem[i]);
                 precoBem[i] = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
             }
         }
 
@@ -56,44 +54,47 @@ public class Opcao1 {
             case 1:
                 System.out.println("Quantos passageiros no ano foram transportados?");
                 int numPassageirosAnuais = sc.nextInt();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 System.out.println("Quantos quilometros no ano foram percorridos?");
                 float kmPercorridosTaxistas = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 receita.criarTaxista(nome, numPassageirosAnuais, kmPercorridosTaxistas);
                 break;
             case 2:
                 System.out.println("Quantas toneladas no ano foram transportados?");
                 float toneladasTransportadas = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 System.out.println("Quantos quilometros no ano foram percorridos?");
                 float kmPercorridos = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 receita.criarCaminhoneiro(nome, toneladasTransportadas, kmPercorridos);
                 break;
             case 3:
                 System.out.println("Quantos salarios minimos são pagos?");
                 float numSalarios = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 System.out.println("Quanto foi o gasto com material didatico no ano?");
                 float gastosMaterialDidatico = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 receita.criarProfessor(nome, numSalarios, gastosMaterialDidatico);
                 break;
             case 4:
                 System.out.println("Quantos pacientes foram atendidos no ano?");
                 int numPacientes = sc.nextInt();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 System.out.println("Quanto foi o gasto com os congressos no ano?");
                 float despesasCongresso = sc.nextFloat();
-                Main.clearBuffer(sc);
+                MeuSistemaDeTributacao.clearBuffer(sc);
                 receita.criarProfessor(nome, numPacientes, despesasCongresso);
                 break;
             default:
                 System.out.println("Tipo de contribuinte inexistente.");
                 break;
         }
-        if (numBens == 1){
+        if(numBens == 0){
+            receita.getContribuintes().get(receita.getContribuintes().size() - 1).setBens(null);
+        }
+        else if (numBens == 1){
             receita.getContribuintes().get(receita.getContribuintes().size() - 1).addBem(tipoBem[0], precoBem[0]);
         }
         else{
@@ -101,6 +102,8 @@ public class Opcao1 {
                 receita.getContribuintes().get(receita.getContribuintes().size() - 1).addBem(tipoBem[i], precoBem[i]);
             }
         }
+
+        return receita;
     }
 
 }
